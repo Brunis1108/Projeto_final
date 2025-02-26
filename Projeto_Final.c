@@ -497,7 +497,6 @@ void adjust_digit()
     adc_select_input(0); // Seleciona o canal ADC correspondente ao eixo Y
     uint16_t eixo_y = adc_read(); // Lê o valor do eixo Y
     int index_final = digit_index == 0 ? 6 : 10; // Define o limite do dígito
-
     if (eixo_y < (2047 - 500)) // Joystick inclinado para cima
     {
         number_digits[digit_index] = (number_digits[digit_index] - 1 + index_final) % index_final; // Aumenta o dígito
@@ -525,6 +524,9 @@ void confirm_number()
             {
                 gramas_alimento = 50; // Define um valor padrão
             }
+            else if(numero >500){
+                gramas_alimento = 500; // Define um valor máximo
+            }
             else
             {
                 gramas_alimento = numero; // Salva a quantidade de ração
@@ -550,11 +552,13 @@ void confirm_number()
             {
                 ml_agua = 30; // Define um valor padrão
             }
+            else if(numero>500){
+                ml_agua = 500; // Define um valor máximo
+            }
             else
             {
                 ml_agua = numero; // Salva a quantidade de água
             }
-            printf("Quantidade de água definida para: %d ml\n", ml_agua);
 
             sprintf(agua, "Agua: %dml\n", ml_agua);
 
