@@ -74,7 +74,22 @@
       "top": 271.2,
       "left": 49.8,
       "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text13",
+      "top": 380,
+      "left": 360,
+      "attrs": { "text": "Ração" }
+    },
+    {
+      "type": "wokwi-text",
+      "id": "text13",
+      "top": 300,
+      "left": 250,
+      "attrs": { "text": "Água" }
     }
+    
   ],
   "connections": [
     [ "pico:GP0", "$serialMonitor:RX", "", [] ],
